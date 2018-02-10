@@ -8,13 +8,15 @@ function platform(platform) {
 }
 
 exports.run = (client, msg) => {
+    let members = 0;
+    client.guilds.forEach(g => members+=g.memberCount);
     const emb = new Discord.RichEmbed();
     msg.channel.startTyping();
     emb.setColor("#75C0AC");
     emb.setAuthor('Stats of '+client.user.tag, client.user.avatarURL, 'http://vgh.ftp.sh');
     emb.addField('Servers', client.guilds.size, true);
     emb.addField('Channels', client.channels.size, true);
-    emb.addField('Users', client.users.size, true);
+    emb.addField('Users', members, true);
     emb.addField('Discord.js Version', Discord.version, true);
     emb.addField('Node.js Version', process.version, true);
     emb.addField('PID', process.pid, true);
