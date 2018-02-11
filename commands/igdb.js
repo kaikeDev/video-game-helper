@@ -38,7 +38,7 @@ exports.run = (client, msg, args) => {
         if(!platform) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Game not found', 'Try with a valid one, for example `Halo 4`');
+            emb.addField('Platform not found', 'Try with a valid one, for example `Playstation 4`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping(true);

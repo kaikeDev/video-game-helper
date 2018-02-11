@@ -17,14 +17,14 @@ exports.run = (client, msg, args) => {
         if(!playerData[0]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Platform not defined', 'Try again with a valid platform');
+            emb.addField('Platform not defined', 'List of platforms: `pc, ps4, xbox`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         } else if(!platforms.includes(playerData[0].toUpperCase())) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Invalid platform', 'Try again with a valid platform');
+            emb.addField('Invalid platform', 'List of platforms: `pc, ps4, xbox`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();

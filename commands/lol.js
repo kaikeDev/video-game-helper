@@ -60,14 +60,14 @@ exports.run = (client, msg, args) => {
         if(!playerData[0]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Region not defined', 'Try again with a valid region');
+            emb.addField('Region not defined', 'Valid regions: `euw, eune, br, kr, jp, na, pbe, lan, las, oce, tr, ru`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         } else if(!regions.includes(playerData[0].toUpperCase())) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Invalid region', 'Try again with a valid region');
+            emb.addField('Invalid region', 'Valid regions: `euw, eune, br, kr, jp, na, pbe, lan, las, oce, tr, ru`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
