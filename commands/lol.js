@@ -38,8 +38,8 @@ exports.run = (client, msg, args) => {
                 await emb.setColor('#F03A17');
                 await emb.addField("Error while fetching this week's rotation", "Probably it's the API's fault.\nError: `"+error+"`");
                 await emb.setFooter(msg.author.avatarURL, msg.author.tag);
-                await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
+                await msg.channel.send({embed:emb});
             }
                 await msg.channel.startTyping();
                 await emb.setColor('#064955')
@@ -49,8 +49,8 @@ exports.run = (client, msg, args) => {
                 await emb.addField("₪₪₪₪₪₪₪₪₪₪₪", `${rotation[0][0]}  ${rotation[0][1]}\n${rotation[2][0]}  ${rotation[2][1]}\n${rotation[4][0]}  ${rotation[4][1]}\n${rotation[6][0]}  ${rotation[6][1]}\n${rotation[8][0]}  ${rotation[8][1]}\n${rotation[10][0]}  ${rotation[10][1]}\n${rotation[12][0]}  ${rotation[12][1]}`, true);
                 await emb.addField("₪₪₪₪₪₪₪₪₪₪₪", `${rotation[14][0]}  ${rotation[14][1]}\n${rotation[16][0]}  ${rotation[16][1]}\n${rotation[18][0]}  ${rotation[18][1]}\n${rotation[20][0]}  ${rotation[20][1]}\n${rotation[22][0]}  ${rotation[22][1]}\n${rotation[24][0]}  ${rotation[24][1]}\n${rotation[26][0]}  ${rotation[26][1]}`, true);
                 await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-                await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
+                await msg.channel.send({embed:emb});
         });
     } else if(lol.startsWith('-player')) {
         playerdata = lol.replace('-player', '').trim();
@@ -60,22 +60,22 @@ exports.run = (client, msg, args) => {
             emb.setColor('#F03A17');
             emb.addField('Region not defined', 'Valid regions: `euw, eune, br, kr, jp, na, pbe, lan, las, oce, tr, ru`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         } else if(!regions.includes(playerData[0].toUpperCase())) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
             emb.addField('Invalid region', 'Valid regions: `euw, eune, br, kr, jp, na, pbe, lan, las, oce, tr, ru`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         } else if(!playerData[1]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
             emb.addField('Username not defined', 'Try again with a valid username');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         } else if(regions.includes(playerData[0].toUpperCase())) {
             platf = playerData[0];
             plat = platf.toLowerCase();
@@ -94,8 +94,8 @@ exports.run = (client, msg, args) => {
                 await emb.addField('Account ID', data.accountId, true);
                 await emb.addField('Icon ID', data.profileIconId, true);
                 await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-                await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
+                await msg.channel.send({embed:emb});
             });
         }
     } else if(!args[0]) {
@@ -106,8 +106,8 @@ exports.run = (client, msg, args) => {
         emb.addField('`-rotation`', "See the Weekly Champion Rotation\nUsage: `"+process.env.PREFIX+"lol -rotation`");
         emb.addField('`-player`', "See a player's statistics\nUsage: `"+process.env.PREFIX+"lol -player [region] [username]`\n\nValid regions: `euw, eune, br, kr, jp, na, pbe, lan, las, oce, tr, ru`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
+        msg.channel.send({embed:emb});
     }
 }
 

@@ -12,8 +12,8 @@ exports.run = (client, msg, args) => {
             emb.setColor('#F03A17');
             emb.addField('Game not found', 'Try with a valid one, for example `Halo 4`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            msg.channel.stopTyping();
             msg.channel.send({embed:emb});
-            msg.channel.stopTyping(true);
         }
         Igdb.games({
             limit: 1,
@@ -30,8 +30,8 @@ exports.run = (client, msg, args) => {
             await emb.addField('Rating:', Math.floor(obj.rating)+"/100 in "+obj.rating_count+" ratings", true);
             await emb.addField('ESRB Rating:', obj.esrb.rating, true);
             await emb.addField('PEGI Rating:', obj.pegi.synopsis, true);
-            await msg.channel.send({embed:emb});
             await msg.channel.stopTyping();
+            await msg.channel.send({embed:emb});
         });
     } else if(query.startsWith('-platform')) {
         platform = query.replace('-platform', '').trim();
@@ -40,8 +40,8 @@ exports.run = (client, msg, args) => {
             emb.setColor('#F03A17');
             emb.addField('Platform not found', 'Try with a valid one, for example `Playstation 4`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            msg.channel.stopTyping();
             msg.channel.send({embed:emb});
-            msg.channel.stopTyping(true);
         }
         Igdb.platforms({
             limit: 1,
@@ -58,8 +58,8 @@ exports.run = (client, msg, args) => {
             await emb.addField('Summary:', obj.summary, true);
             await emb.addField('Generation:', obj.generation+'th Generation', true);
             await emb.addField('Official '+obj.name+' Website:', '[Click here]('+obj.website+')', true);
-            await msg.channel.send({embed:emb});
             await msg.channel.stopTyping();
+            await msg.channel.send({embed:emb});
         });
     } else if(!args[0]) {
         msg.channel.startTyping();
@@ -69,8 +69,8 @@ exports.run = (client, msg, args) => {
         emb.addField('`-game`', "Search for a game in IGDB\nUsage: `"+process.env.PREFIX+"igdb -game [game name]`");
         emb.addField('`-platform`', "Search for a platform in IGDB\nUsage: `"+process.env.PREFIX+"igdb -platform [platform name]`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
+        msg.channel.send({embed:emb});
     }
 }
 

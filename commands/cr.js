@@ -17,8 +17,8 @@ exports.run = (client, msg, args) => {
             emb.setColor('#F03A17');
             emb.addField('Player tag not valid.', 'Use a valid one, for example `28LLY2JC9`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         }
         request({method:'GET', url: url+'/player/'+s, headers: { auth: process.env.CLASHAPI }}, async function(err, response, body) {
             if(!err && response.statusCode == 200) {
@@ -33,8 +33,8 @@ exports.run = (client, msg, args) => {
                 await emb.addField('Games ['+r.games.total+']', '**'+numberWithCommas(r.games.wins)+'** Wins / **'+numberWithCommas(r.games.losses)+'** Losses / **'+numberWithCommas(r.games.draws)+'** Draws / **'+numberWithCommas(r.stats.threeCrownWins)+'** Three Crown Wins');
                 await emb.addField('Total Donations', '**'+r.stats.totalDonations+'** cards')
                 await emb.addField('Chest Rotation', 'Legendary Chest: **'+r.chestCycle.legendary+'** chests\nSuper Magical Chest: **'+r.chestCycle.superMagical+'** chests\nEpic Chest: **'+r.chestCycle.epic+'** chests\nMagical Chest: **'+r.chestCycle.magical+'** chests\nGiant Chest: **'+r.chestCycle.giant+'** chests');
-                await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
+                await msg.channel.send({embed:emb});
             } else if(err) {
                 await msg.channel.send('```'+err+'```');
             }
@@ -63,8 +63,8 @@ exports.run = (client, msg, args) => {
                 await emb.addField('Donations Per Week', '**'+r.donations+'**');
                 await emb.addField('Region', '**'+r.location.name+'**');
                 await emb.addField('Clan Chest', '**'+r.clanChest.crowns+' / '+'1600'+' [Level '+r.clanChest.level+']**');
-                await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
+                await msg.channel.send({embed:emb});
             } else if(err) {
                 await msg.channel.send('```'+err+'```');
             }
@@ -77,8 +77,8 @@ exports.run = (client, msg, args) => {
         emb.addField('`-player`', "Search for a player's stats through his tag\nUsage: `"+process.env.PREFIX+"cr -player [player tag]`");
         emb.addField('`-clan`', "Search for a clan's stats through its tag\nUsage: `"+process.env.PREFIX+"cr -clan [clan tag]`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
-        msg.channel.stopTyping();        
+        msg.channel.stopTyping();
+        msg.channel.send({embed:emb});     
     }
 }
 

@@ -9,10 +9,10 @@ function emoji(emo) {
     return emojia[emo];
 }
 function divider(coins) {
-    return parseInt(coins) / 100;
+    return Math.floor(parseInt(coins) / 100);
 }
 function lastTwo(coins) {
-    return parseInt(coins) % 100;
+    return Math.floor(parseInt(coins) % 100);
 }
 
 exports.run = (client, msg, args) => {
@@ -37,8 +37,8 @@ exports.run = (client, msg, args) => {
                 quests.push(res[i].name);
             }
             await emb.addField('₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪', quests.join("\n"));
-            await msg.channel.send({embed:emb});
             await msg.channel.stopTyping();
+            await msg.channel.send({embed:emb});
         });
     } else if(argu.startsWith('-exchange')) {
         api.getCommerceExchange('coins', '30000').then(async function (res) {
@@ -47,8 +47,8 @@ exports.run = (client, msg, args) => {
             await emb.setFooter(msg.author.tag, msg.author.avatarURL);
             await emb.setColor('#951111');
             await emb.addField("1 "+emoji('gw2_gem'), "**"+divider(res.coins_per_gem)+"** "+emoji('gw2_silver_coin')+" **"+lastTwo(res.coins_per_gem)+"** "+emoji('gw2_copper_coin'));
-            await msg.channel.send({embed:emb});
             await msg.channel.stopTyping();
+            await msg.channel.send({embed:emb});
         });
     } else if(!args[0]) {
         msg.channel.startTyping();
@@ -57,9 +57,9 @@ exports.run = (client, msg, args) => {
         emb.setThumbnail('https://orig00.deviantart.net/a943/f/2013/349/2/4/guild_wars_2___dock_icon_by_blakegedye-d6y3hha.png');
         emb.addField('`-daily`', "Search for GW2 Daily Quests\nUsage: `"+process.env.PREFIX+"gw2 -daily`");
         emb.addField('`-exchange`', "See the exchange value from coins to gems\nUsage: `"+process.env.PREFIX+"gw2 -exchange`");
-        emb.setFooter(msg.author.tag, msg.author.avatarURL);        
+        emb.setFooter(msg.author.tag, msg.author.avatarURL);
+        msg.channel.stopTyping();        
         msg.channel.send({embed:emb});
-        msg.channel.stopTyping();
     }
 }
 

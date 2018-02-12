@@ -19,22 +19,22 @@ exports.run = (client, msg, args) => {
             emb.setColor('#F03A17');
             emb.addField('Platform not defined', 'List of platforms: `pc, ps4, xbox`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         } else if(!platforms.includes(playerData[0].toUpperCase())) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
             emb.addField('Invalid platform', 'List of platforms: `pc, ps4, xbox`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         } else if(!playerData[1]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
             emb.addField('Username not defined', 'Try again with a valid username');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         } else if(platforms.includes(playerData[0].toUpperCase())) {
             platf = playerData[0];
             plat = platform(platf.toUpperCase());
@@ -46,22 +46,22 @@ exports.run = (client, msg, args) => {
                     await emb.setAuthor('Stats about '+data.displayName, 'https://vignette.wikia.nocookie.net/rocketleague/images/f/f6/Rocketleague-logo.png/revision/latest?cb=20161207070401', 'https://rocketleaguestats.com/');
                     await emb.setImage(data.signatureUrl);
                     await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-                    await msg.channel.send({embed:emb});
                     await msg.channel.stopTyping();
+                    await msg.channel.send({embed:emb});
                 } else if(status === 404) {
                     await msg.channel.startTyping();
                     await emb.setColor('#F03A17');
                     await emb.addField('User not found', 'Try again with a valid username / tag');
                     await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-                    await msg.channel.send({embed:emb});
                     await msg.channel.stopTyping();
+                    await msg.channel.send({embed:emb});
                 } else {
                     await msg.channel.startTyping();
                     await emb.setColor('#F03A17');
                     await emb.addField('An error has occured', 'Report this to '+client.users.get(process.env.OWNER).tag+' with the code '+status);
                     await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-                    await msg.channel.send({embed:emb});
                     await msg.channel.stopTyping();
+                    await msg.channel.send({embed:emb});
                 }
             });
         }
@@ -72,8 +72,8 @@ exports.run = (client, msg, args) => {
         emb.setThumbnail('https://i.imgur.com/HzLyjWn.png');
         emb.addField('`-player`', "Search for a player's stats\nUsage: `"+process.env.PREFIX+"rocket -player [platform] [username]`\n\nValid platforms: `pc, ps4, xbox`\nIf you're checking stats on the PC, use your [STEAM64 ID](https://steamid.io/)");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
+        msg.channel.send({embed:emb});
     }
 }
 

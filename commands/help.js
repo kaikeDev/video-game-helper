@@ -27,8 +27,8 @@ exports.run = (client, msg) => {
     emb.addBlankField();
     emb.addField('Official Partners', 'TUNADOS: <https://discord.gg/tunados>');
     emb.setFooter(msg.author.tag, msg.author.avatarURL);
-    msg.channel.send({embed:emb});
     msg.channel.stopTyping();
+    msg.channel.send({embed:emb});
 }
 
 exports.command = {

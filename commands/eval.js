@@ -25,8 +25,8 @@ exports.run = (client, msg, args) => {
               emb.addField('Input', '```'+args.join(" ")+'```');
               emb.addField('Output', '```'+clean(evaled)+'```');
               emb.setFooter(msg.author.tag, msg.author.avatarURL);
-              msg.channel.send({embed:emb});
               msg.channel.stopTyping();
+              msg.channel.send({embed:emb});
           } catch (err) {
               msg.channel.startTyping();
               emb.setColor('#A22665');
@@ -34,8 +34,8 @@ exports.run = (client, msg, args) => {
               emb.addField('Input', '```'+args.join(" ")+'```');
               emb.addField('Output', '```'+clean(err)+'```');
               emb.setFooter(msg.author.tag, msg.author.avatarURL);
-              msg.channel.send({embed:emb});
               msg.channel.stopTyping();
+              msg.channel.send({embed:emb});
           }
 }
 

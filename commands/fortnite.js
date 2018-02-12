@@ -20,22 +20,22 @@ exports.run = (client, msg, args) => {
             emb.setColor('#F03A17');
             emb.addField('Platform not defined', 'List of platforms: `pc, ps4, xbox`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         } else if(!platforms.includes(allStats[0].toUpperCase())) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
             emb.addField('Invalid platform', 'List of platforms: `pc, ps4, xbox`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         } else if(!allStats[1]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
             emb.addField('Username not defined', 'Try again with a valid username');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         } else if(platforms.includes(allStats[0].toUpperCase())) {
             platf = allStats[0];
             plat = platform(platf.toUpperCase(), Fortnite);
@@ -47,8 +47,8 @@ exports.run = (client, msg, args) => {
                 await emb.setThumbnail('https://i.imgur.com/IMjozOI.jpg');
                 await emb.addField('General', `Score: ${p.stats.score}\nKills: ${p.stats.kills}\nMatches: ${p.stats.matches}\nTop 1: ${p.stats.top1}\nTop 3: ${p.stats.top3}\nTop 5: ${p.stats.top5}\nTop 25: ${p.stats.top25}\nK/D: ${p.stats.kd}\nTime Played: ${p.stats.timePlayed}`);
                 await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-                await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
+                await msg.channel.send({embed:emb});
             });
         }
     } else if(!args[0]) {
@@ -58,8 +58,8 @@ exports.run = (client, msg, args) => {
         emb.setThumbnail('https://i.imgur.com/IMjozOI.jpg');
         emb.addField('`-player`', "Search for a player's stats\nUsage: `"+process.env.PREFIX+"fortnite -player [platform] [username]`\n\nValid platforms: `pc, ps4, xbox`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
+        msg.channel.send({embed:emb});
     }
 }
 

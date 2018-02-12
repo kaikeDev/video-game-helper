@@ -11,8 +11,8 @@ exports.run = (client, msg, args) => {
             emb.setColor('#F03A17');
             emb.addField('Minecraft server not valid.', 'Use a valid one, for example `mc.hypixel.net`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         }
         var url = 'https://mcapi.de/api/image/favicon/'+ip
         ping.pc({ server: ip }).then(async function(data) {
@@ -24,8 +24,8 @@ exports.run = (client, msg, args) => {
             await emb.addField('Players', data.players.online+" out of "+data.players.max);
             await emb.setThumbnail(url);
             await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            await msg.channel.send({embed:emb});
             await msg.channel.stopTyping();
+            await msg.channel.send({embed:emb});
         }).catch(console.error);
     } else if(query.startsWith("-user")) {
         user = query.replace('-user', '').trim();
@@ -34,16 +34,16 @@ exports.run = (client, msg, args) => {
             emb.setColor('#F03A17');
             emb.addField('Minecraft user not valid.', 'Use a valid one, for example `Dinnerbone`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         }
         msg.channel.startTyping();
         emb.setColor('#44FC37');
         emb.setAuthor(user+"'s Skin", "http://minecraft-skin-viewer.net/3d.php?layers=true&aa=true&a=0&w=0&wt=0&abg=0&abd=0&ajg=0&ajd=0&ratio=13&format=png&login="+user+"&headOnly=true&displayHairs=true&randomness=384");
         emb.setImage("http://minecraft-skin-viewer.net/3d.php?layers=true&aa=true&a=0&w=0&wt=0&abg=0&abd=0&ajg=0&ajd=0&ratio=13&format=png&login="+user+"&headOnly=false&displayHairs=true&randomness=384");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
+        msg.channel.send({embed:emb});
     } else if(!args[0]) {
         msg.channel.startTyping();
         emb.setColor('#44FC37');
@@ -52,8 +52,8 @@ exports.run = (client, msg, args) => {
         emb.addField('`-user`', "Search for a user's skin\nUsage: `"+process.env.PREFIX+"minecraft -user [username]`");
         emb.addField('`-server`', "Search for a server's status\nUsage: `"+process.env.PREFIX+"minecraft -server [server ip]`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
+        msg.channel.send({embed:emb});
     }
 }
 

@@ -23,16 +23,16 @@ exports.run = (client, msg, args) => {
             emb.setColor('#F03A17');
             emb.addField('osu! player not valid.', 'Use a valid one, for example `Cookiezi`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
+            msg.channel.send({embed:emb});
         }
         var url = 'https://lemmmy.pw/osusig/sig.php?uname=' + encodeURI(username);
         msg.channel.startTyping();
         emb.setColor('#EA5F9C');
         emb.setImage(url);
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
+        msg.channel.send({embed:emb});
     } else if(user.startsWith("-stats")){
     username = user.replace('-stats', '').trim();
     if(!username) {
@@ -40,8 +40,8 @@ exports.run = (client, msg, args) => {
         emb.setColor('#F03A17');
         emb.addField('osu! player not valid.', 'Use a valid one, for example `Cookiezi`');
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
+        msg.channel.send({embed:emb});
     }
     osuApi.getUser({u: username}).then(async function(user) {
         const pais = user.country;
@@ -60,15 +60,15 @@ exports.run = (client, msg, args) => {
         await emb.addField('Accuracy', user.accuracyFormatted, true);
         await emb.setFooter(msg.author.tag, msg.author.avatarURL);
         await emb.setThumbnail('https://a.ppy.sh/'+user.id);
-        await msg.channel.send({embed:emb});
         await msg.channel.stopTyping();
+        await msg.channel.send({embed:emb});
     }).catch(async function(err) {
         await msg.channel.startTyping();
         await emb.setColor('#F03A17');
         await emb.addField('Error while fetching osu! player stats', err);
         await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        await msg.channel.send({embed:emb});
         await msg.channel.stopTyping();
+        await msg.channel.send({embed:emb});
     });
     } else if(!args[0]) {
         msg.channel.startTyping();
@@ -78,8 +78,8 @@ exports.run = (client, msg, args) => {
         emb.addField('`-stats`', "Search for a user's stats\nUsage: `"+process.env.PREFIX+"osu -stats [username]`");
         emb.addField('`-osusig`', "Search for a user's osu!sig\nUsage: `"+process.env.PREFIX+"osu -osusig [username]`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
+        msg.channel.send({embed:emb});
     }
 }
 

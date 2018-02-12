@@ -22,8 +22,8 @@ exports.run = (client, msg) => {
     emb.addField('PID', process.pid, true);
     emb.addField('Process Platform', platform(process.platform), true);
     emb.setThumbnail(client.user.avatarURL);
-    msg.channel.send({embed:emb});
     msg.channel.stopTyping();
+    msg.channel.send({embed:emb});
 }
 
 exports.command = {
