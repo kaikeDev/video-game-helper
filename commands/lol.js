@@ -110,3 +110,10 @@ exports.run = (client, msg, args) => {
         msg.channel.stopTyping();
     }
 }
+
+exports.command = {
+    name: "lol",
+    fullCmd: process.env.PREFIX+"lol",
+    description: "Shows stats in League of Legends",
+    hidden: false
+}

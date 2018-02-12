@@ -62,3 +62,10 @@ exports.run = (client, msg, args) => {
         msg.channel.stopTyping();
     }
 }
+
+exports.command = {
+    name: "fortnite",
+    fullCmd: process.env.PREFIX+"fortnite",
+    description: "Shows stats in Fortnite",
+    hidden: false
+}

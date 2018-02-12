@@ -73,3 +73,10 @@ exports.run = (client, msg, args) => {
         msg.channel.stopTyping();
     }
 }
+
+exports.command = {
+    name: "igdb",
+    fullCmd: process.env.PREFIX+"igdb",
+    description: "Shows stats in the Internet Game Database",
+    hidden: false
+}

@@ -25,3 +25,10 @@ exports.run = (client, msg) => {
     msg.channel.send({embed:emb});
     msg.channel.stopTyping();
 }
+
+exports.command = {
+    name: "stats",
+    fullCmd: process.env.PREFIX+"stats",
+    description: "Shows stats about myself",
+    hidden: false
+}

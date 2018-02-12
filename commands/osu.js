@@ -82,3 +82,10 @@ exports.run = (client, msg, args) => {
         msg.channel.stopTyping();
     }
 }
+
+exports.command = {
+    name: "osu",
+    fullCmd: process.env.PREFIX+"osu",
+    description: "Shows stats in osu!",
+    hidden: false
+}

@@ -56,3 +56,10 @@ exports.run = (client, msg, args) => {
         msg.channel.stopTyping();
     }
 }
+
+exports.command = {
+    name: "minecraft",
+    fullCmd: process.env.PREFIX+"minecraft",
+    description: "Shows stats in Minecraft",
+    hidden: false
+}

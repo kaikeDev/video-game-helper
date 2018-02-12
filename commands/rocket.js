@@ -76,3 +76,10 @@ exports.run = (client, msg, args) => {
         msg.channel.stopTyping();
     }
 }
+
+exports.command = {
+    name: "rocket",
+    fullCmd: process.env.PREFIX+"rocket",
+    description: "Shows stats in Rocket League",
+    hidden: false
+}

@@ -62,3 +62,10 @@ exports.run = (client, msg, args) => {
         msg.channel.stopTyping();
     }
 }
+
+exports.command = {
+    name: "gw2",
+    fullCmd: process.env.PREFIX+"gw2",
+    description: "Shows stats in Guild Wars 2",
+    hidden: false
+}

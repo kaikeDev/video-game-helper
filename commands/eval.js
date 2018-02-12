@@ -38,3 +38,10 @@ exports.run = (client, msg, args) => {
               msg.channel.stopTyping();
           }
 }
+
+exports.command = {
+    name: "eval",
+    fullCmd: process.env.PREFIX+"eval",
+    description: "Evals JavaScript code",
+    hidden: true
+}

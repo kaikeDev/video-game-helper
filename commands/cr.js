@@ -81,3 +81,10 @@ exports.run = (client, msg, args) => {
         msg.channel.stopTyping();        
     }
 }
+
+exports.command = {
+    name: "cr",
+    fullCmd: process.env.PREFIX+"cr",
+    description: "Show stats in Clash Royale",
+    hidden: false
+}
