@@ -10,8 +10,7 @@ exports.run = (client, msg, args) => {
     const outerr2 = result.stderr ? `${"```sh"}\n${result.stderr}\n${"```"}\n` : "";
     const embed = new Discord.RichEmbed()
     .setColor("0x2ECC71")
-    .setAuthor('Exec / Shell', msg.author.avatarURL)
-    .setTimestamp()
+    .setTitle('Exec / Shell')
     .addField(":inbox_tray: Input", `\`\`\`sh\n${input}\n\`\`\``)
     .addField(":outbox_tray: Output", `${output2}\n${outerr2}`)
     .setFooter(msg.author.tag, msg.author.avatarURL);
