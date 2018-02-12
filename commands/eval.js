@@ -31,7 +31,6 @@ exports.run = (client, msg, args) => {
               msg.channel.startTyping();
               emb.setColor('#A22665');
               emb.setTitle('Eval | <:tickNo:412632888010604555>');
-              emb.addField('Input', '```'+args.join(" ")+'```');
               emb.addField('Output', '```'+clean(err)+'```');
               emb.setFooter(msg.author.tag, msg.author.avatarURL);
               msg.channel.stopTyping();
