@@ -20,11 +20,13 @@
     "lol-riot-api-module": "^3.0.3",
     "lol-stats-api-module": "^1.0.6",
     "mc-hermes": "^0.1.5",
+    "moment": "^2.20.1",
     "node-osu": "^1.3.0",
     "pushbullet-api": "0.0.2",
     "request": "^2.83.0",
     "rls-api": "^1.1.0",
-    "snekfetch": "^3.5.2"
+    "snekfetch": "^3.5.2",
+    "steamapi": "^2.0.0"
   },
   "devDependencies": {
     "eslint-config-google": "^0.9.1"
