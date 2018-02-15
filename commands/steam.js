@@ -69,14 +69,7 @@ exports.run = (client, msg, args) => {
         } else if(!isNaN(steamId)) {
             doSteamSearch(steam, emb, msg, steamId);
         } else if(isNaN(steamId)) {
-            if(!steamId.startsWith('https://steamcommunity.com/id/')) {
-                msg.channel.startTyping();
-                emb.setColor('#F03A17');
-                emb.addField('You need to define a valid Steam ID', 'Usage: `'+process.env.PREFIX+'steam -player [steam id or steamcommunity link]`');
-                emb.setFooter(msg.author.tag, msg.author.avatarURL);
-                msg.channel.stopTyping();
-                msg.channel.send({embed:emb});
-            } else if(steamId.startsWith('https://steamcommunity.com/id/')) {
+            if(steamId.startsWith('https://steamcommunity.com/id/')) {
                 steam.resolve(steamId).then(id => {
                     doSteamSearch(steam, emb, msg, id);
                 });
